@@ -1,4 +1,4 @@
-// Type definitions for Apollo GraphQL  Meteor Integration 0.6.1
+// Type definitions for Apollo GraphQL Meteor Integration 0.6.1
 // Project: https://github.com/apollographql/meteor-integration
 // Definitions by: Keith Gillette <https://github.com/KeithGillette>
 

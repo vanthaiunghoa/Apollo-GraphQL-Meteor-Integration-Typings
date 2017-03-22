@@ -1,5 +1,5 @@
 {
-  "name": "apollographql-meteor-integration",
+  "name": "apollo-meteor-typings",
   "version": "0.6.1",
   "main": "meteor-apollo.d.ts",
   "dependencies": {
