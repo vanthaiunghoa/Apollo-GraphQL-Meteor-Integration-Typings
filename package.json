@@ -1,0 +1,9 @@
+{
+  "name": "apollographql-meteor-integration",
+  "version": "0.6.1",
+  "main": "meteor-apollo.d.ts",
+  "dependencies": {
+    "apollo-client": "^1.0.0-rc.6",
+    "graphql": "^0.9.1"
+  }
+}
