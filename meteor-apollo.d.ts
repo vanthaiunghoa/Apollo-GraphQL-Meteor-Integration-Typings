@@ -46,7 +46,7 @@ declare module 'meteor/apollo' {
 
 	export interface customApolloServerConfig {
 		path?: string;
-		configServer?: () => any;
+		configServer?: (server: any) => void;
 		graphiql?: boolean;
 		graphiqlPath?: string;
 		graphiqlOptions?: graphiqlOptions;
