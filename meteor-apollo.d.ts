@@ -1,4 +1,7 @@
-// Type definitions for Apollo GraphQL Meteor Integration 0.6.1
+// @ToDo: Move these into DefinitelyTyped and add as project dependency
+// https://github.com/KeithGillette/Apollo-GraphQL-Meteor-Integration-Typings
+
+// Type definitions for Apollo GraphQL Meteor Integration 0.7.2
 // Project: https://github.com/apollographql/meteor-integration
 // Definitions by: Keith Gillette <https://github.com/KeithGillette>
 
@@ -9,12 +12,9 @@ declare module 'meteor/apollo' {
 	import { NetworkInterface } from 'apollo-client';
 	import { GraphQLSchema } from 'graphql';
 	import { ApolloStateSelector } from 'apollo-client/ApolloClient';
-	import { IdGetter } from 'apollo-client/ApolloClient';
 	import { CustomResolverMap } from 'apollo-client/data/readFromStore';
-	import { NetworkInterfaceOptions } from 'apollo-client/transport/networkInterface';
 
-	export function createMeteorNetworkInterface(uriOrInterfaceOpts: string | NetworkInterfaceOptions,
-												 secondArgOpts: NetworkInterfaceOptions): NetworkInterface;
+	export function createMeteorNetworkInterface(customNetworkInterface?: CustomNetworkInterface): NetworkInterface;
 
 	export function meteorClientConfig(customClientConfig?: ApolloClientConfig): any;
 
@@ -32,16 +32,24 @@ declare module 'meteor/apollo' {
 	}
 
 	export interface ApolloClientConfig {
-		networkInterface?: NetworkInterface;
-		reduxRootSelector?: string | ApolloStateSelector;
-		initialState?: any;
-		dataIdFromObject?: IdGetter;
-		ssrMode?: boolean;
-		ssrForceFetchDelay?: number;
-		addTypename?: boolean;
+		addTypename?: undefined | boolean;
+		connectToDevTools?: undefined | boolean;
 		customResolvers?: CustomResolverMap;
-		connectToDevTools?: boolean;
-		queryDeduplication?: boolean;
+		dataIdFromObject?: (object: any) => string | null | undefined;
+		initialState?: any;
+		networkInterface?: any;
+		queryDeduplication?: undefined | boolean;
+		reduxRootSelector?: string | ApolloStateSelector;
+		ssrForceFetchDelay?: undefined | number;
+		ssrMode?: boolean;
+	}
+
+	export interface CustomNetworkInterface {
+		uri?: string;
+		opts?: {};
+		useMeteorAccounts?: boolean;
+		batchingInterface?: boolean;
+		batchInterval?: number;
 	}
 
 	export interface customApolloServerConfig {
