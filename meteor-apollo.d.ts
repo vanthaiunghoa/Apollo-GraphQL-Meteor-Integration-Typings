@@ -1,7 +1,6 @@
-// @ToDo: Move these into DefinitelyTyped and add as project dependency
 // https://github.com/KeithGillette/Apollo-GraphQL-Meteor-Integration-Typings
 
-// Type definitions for Apollo GraphQL Meteor Integration 0.7.2
+// Type definitions for Apollo GraphQL  Meteor Integration 0.6.1
 // Project: https://github.com/apollographql/meteor-integration
 // Definitions by: Keith Gillette <https://github.com/KeithGillette>
 
@@ -14,7 +13,7 @@ declare module 'meteor/apollo' {
 	import { ApolloStateSelector } from 'apollo-client/ApolloClient';
 	import { CustomResolverMap } from 'apollo-client/data/readFromStore';
 
-	export function createMeteorNetworkInterface(customNetworkInterface?: CustomNetworkInterface): NetworkInterface;
+	export function createNetworkInterface(customNetworkInterface?: CustomNetworkInterface): NetworkInterface;
 
 	export function meteorClientConfig(customClientConfig?: ApolloClientConfig): any;
 
@@ -22,13 +21,13 @@ declare module 'meteor/apollo' {
 
 	export interface GraphQLOptions {
 		schema: GraphQLSchema;	// values to be used as context and rootValue in resolvers
-		context?: any;
-		rootValue?: any;	// function used to format errors before returning them to clients
-		formatError?: Function;	// additional validation rules to be applied to client-specified queries
-		validationRules?: Array<Function>;	// function applied for each query in a batch to format parameters before passing them to `runQuery`
-		formatParams?: Function;	// function applied to each response before returning data to clients
-		formatResponse?: Function;	// a boolean option that will trigger additional debug logging if execution errors occur
-		debug?: boolean;
+		context?: Object;	// value to be used as context in resolvers
+		rootValue?: Object;	// value to be used as rootValue in resolvers
+		formatError?: Function;	// function used to format errors before returning them to clients
+		validationRules?: Array<Function>;	// additional validation rules to be applied to client-specified queries
+		formatParams?: Function;	// function applied for each query in a batch to format parameters before passing them to `runQuery`
+		formatResponse?: Function;	// function applied to each response before returning data to clients
+		debug?: boolean;	// a boolean option that will trigger additional debug logging if execution errors occur
 	}
 
 	export interface ApolloClientConfig {
