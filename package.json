@@ -1,9 +1,9 @@
 {
   "name": "apollo-meteor-typings",
-  "version": "0.6.1",
+  "version": "1.0.0",
   "main": "meteor-apollo.d.ts",
   "dependencies": {
-    "apollo-client": "^1.0.0-rc.6",
-    "graphql": "^0.9.1"
+    "apollo-client": "^2.0.0",
+    "graphql": "^0.10.5"
   }
 }
